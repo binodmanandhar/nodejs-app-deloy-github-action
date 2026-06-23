@@ -19,5 +19,5 @@ jobs:
           script: |
             cd ~/apps/my-node-app
             git pull origin main
-            docker compose up -d --build
+            COMPOSE_BAKE=false docker compose up -d --build
             docker image prune -f

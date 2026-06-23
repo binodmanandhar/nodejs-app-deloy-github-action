@@ -19,5 +19,7 @@ jobs:
           script: |
             cd ~/apps/my-node-app
             git pull origin main
-            COMPOSE_BAKE=false docker compose up -d --build
+            sudo COMPOSE_BAKE=false docker compose down
+            sudo COMPOSE_BAKE=false docker compose build --no-cache
+            sudo COMPOSE_BAKE=false docker compose up -d --force-recreate
             docker image prune -f
